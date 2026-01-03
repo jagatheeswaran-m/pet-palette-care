@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Phone, MessageCircle } from "lucide-react";
 
-import heroPets from "@/assets/hero-pets.jpg";
 import serviceTreatment from "@/assets/service-treatment.jpg";
 import serviceGrooming from "@/assets/service-grooming.jpg";
 import serviceSurgery from "@/assets/service-surgery.jpg";
@@ -66,67 +64,48 @@ const testimonials = [
 ];
 
 const Index = () => {
-  const phoneNumber = "919751721212";
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent("Hello! I would like to book an appointment.")}`;
-
   return (
     <div className="overflow-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] gradient-hero flex items-center overflow-hidden">
-        {/* Decorative shapes */}
-        <div className="absolute top-20 right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-48 h-48 bg-secondary/30 rounded-full blur-2xl" />
+      <section className="relative min-h-[60vh] md:min-h-[70vh] bg-gradient-to-b from-primary-lighter via-background to-background flex items-center overflow-hidden">
+        {/* Subtle wave at bottom */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg 
+            viewBox="0 0 1440 120" 
+            className="w-full h-16 md:h-24"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,60 C360,120 720,0 1080,60 C1260,90 1380,80 1440,60 L1440,120 L0,120 Z"
+              fill="hsl(var(--background))"
+            />
+          </svg>
+        </div>
         
-        <div className="container relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
-            <div className="flex-1 text-center lg:text-left">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display text-primary leading-tight mb-6">
-                The Perfect Care for Stronger, Happier & Healthier Pets
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-4">
-                Pet Treatment | Grooming | Boarding | Vaccination | Consultation
-              </p>
-              <p className="text-muted-foreground mb-8 max-w-lg mx-auto lg:mx-0">
-                At Pet Palette, we provide top-notch veterinary care to furry friends in our community with compassion and expertise.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button variant="hero" asChild>
-                  <Link to="/appointment">Book Appointment</Link>
-                </Button>
-                <Button variant="heroOutline" asChild>
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-5 w-5" />
-                    WhatsApp Us
-                  </a>
-                </Button>
-              </div>
-            </div>
+        <div className="container relative z-10 py-12 md:py-20">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display text-primary leading-tight mb-6">
+              The Perfect Care for Stronger, Happier & Healthier Pets
+            </h1>
             
-            <div className="flex-1 relative">
-              <div className="relative">
-                {/* Purple decorative shape */}
-                <div className="absolute -top-8 -right-8 w-full h-full bg-primary rounded-[3rem] transform rotate-6" />
-                <img
-                  src={heroPets}
-                  alt="Happy dog and cat"
-                  className="relative z-10 rounded-[3rem] shadow-card w-full max-w-lg mx-auto"
-                />
-              </div>
-            </div>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-4 max-w-2xl mx-auto">
+              Complete pet care services you can trust – from routine checkups to grooming and boarding.
+            </p>
+            
+            <p className="text-sm md:text-base text-foreground/70 mb-8 tracking-wide">
+              Pet Treatment • Grooming • Boarding • Vaccination • Consultation
+            </p>
+            
+            <Button 
+              variant="default" 
+              size="lg" 
+              className="rounded-full px-8 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-shadow"
+              asChild
+            >
+              <Link to="/appointment">Book Appointment</Link>
+            </Button>
           </div>
         </div>
-
-        {/* Dotted path decoration */}
-        <svg className="absolute bottom-0 left-0 w-full h-24" preserveAspectRatio="none">
-          <path
-            d="M0,60 Q200,20 400,60 T800,60 T1200,60 T1600,60"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeDasharray="8 8"
-            className="text-foreground/20"
-          />
-        </svg>
       </section>
 
       {/* Welcome Section */}
